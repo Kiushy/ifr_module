@@ -1,0 +1,81 @@
+<?php
+
+
+?>
+
+<!doctype html >
+	<html lang="fr">
+		<head>
+		
+			<title> exo  </title>
+			
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous">
+			</script>
+			
+			<script type="text/javascript">
+			
+				$(document).ready(function(){
+					
+					// imc = p/t²  imc =p/(t*t)
+					
+					function calcimc(imc){
+						
+						
+						var t;
+						var p;
+						
+						var imc = $p / ($t * $t);
+						
+						console.log($imc);
+						
+						$('#res_imc').append( imc );
+						
+					}
+					
+					$('#calcimc').click(function(){
+						
+						var p = prompt(" votre poid");
+						var t= prompt(" votre taille");
+						
+						calcimc(p, t);
+					
+					});
+				
+				
+				});
+				
+			</script>
+			
+			<style type="text/css">
+				
+				html{
+					text-align:center;
+				}
+			
+				h1{
+					text-align: center;
+				}
+			</style>
+	
+		</head>
+			
+		<body>
+				
+				<h1> Exercice</h1>
+				<br/>
+				<br/>
+			
+				<button id="calcimc"> calcule de votre IMC</button>
+				<br/>
+				<br/>
+				<br/>
+				Résultat:
+				<br/>
+				<br/>
+				<div id="res_imc"></div>
+				
+				
+		</body>
+	</html>
