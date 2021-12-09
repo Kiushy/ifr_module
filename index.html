@@ -71,11 +71,15 @@
 					
 					$('#calcimc').click(function(){
 						
+						$("#res_imc").load(" #res_imc > *");
+						$("#com_imc").load(" #com_imc > *");
+						
 						var p = prompt(" votre poid","00");
 						var t = prompt(" votre taille (en cm)","000");
 						
 						p = parseInt(p);
 						t = parseInt(t);
+						
 						calcimc(p,t);
 					
 					});
