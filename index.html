@@ -19,27 +19,64 @@
 				$(document).ready(function(){
 					
 					// imc = p/t²  imc =p/(t*t)
-					
-					function calcimc(imc){
+					//function doit etre défini par ces machin
+					function calcimc(p,t){
 						
 						
-						var t;
-						var p;
+						//var t = Number.parseInt("taille",10);
+						//var p = Number.parseInt("poid", 10);
 						
-						var imc = $p / ($t * $t);
+						var R = p / (t * t);
+						var R2 = R * 10000 ;
+						var imc = Math.round(R2 * 10) / 10;
+						//var imc =Math.round (R * 10000) ;
 						
-						console.log($imc);
+						console.log(imc);
+						console.log(t);
+						console.log(p);
 						
 						$('#res_imc').append( imc );
 						
+						if(imc <= 18.5){
+							var com = "Insuffisance pondérale (maigreur)";
+						}
+							else if(imc >= 18.5, imc <= 25){
+								com = "Corpulence normale";
+							}
+								else if(imc >= 25, imc <= 30){
+									com = "Surpoids";
+								}
+									else if(imc >= 30, imc <= 35){
+										com = "Obésité modérée";
+									}
+										else if(imc >= 35, imc <= 40){
+											com = "Obésité sévère";
+										}
+											else if(imc >= 40){
+												com = "Obésité morbide ou massive";
+											}
+												else{
+													com = "stoopid"
+												}
+						$('#com_imc').append(com);
 					}
+					//moins de 18,5 	Insuffisance pondérale (maigreur)
+					//18,5 à 25	Corpulence normale
+					//25 à 30	Surpoids
+					//30 à 35	Obésité modérée
+					//35 à 40	Obésité sévère
+					//plus de 40	Obésité morbide ou massive
+					
+					
 					
 					$('#calcimc').click(function(){
 						
-						var p = prompt(" votre poid");
-						var t= prompt(" votre taille");
+						var p = prompt(" votre poid","00");
+						var t = prompt(" votre taille (en cm)","000");
 						
-						calcimc(p, t);
+						p = parseInt(p);
+						t = parseInt(t);
+						calcimc(p,t);
 					
 					});
 				
@@ -75,6 +112,8 @@
 				<br/>
 				<br/>
 				<div id="res_imc"></div>
+				<br/>
+				<div id="com_imc"></div>
 				
 				
 		</body>
